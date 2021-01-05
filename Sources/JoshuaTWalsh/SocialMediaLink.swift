@@ -55,4 +55,11 @@ extension SocialMediaLink {
             icon: "fab fa-twitter-square"
         )
     }
+
+    static var buyMeACoffee: SocialMediaLink {
+        return SocialMediaLink(
+            title: "Buy Me A Coffee",
+            url: "https://www.buymeacoffee.com/joshuawalsh",
+            icon: "fab fa-coffee")
+    }
 }

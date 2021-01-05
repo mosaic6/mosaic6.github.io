@@ -22,7 +22,7 @@ struct JoshuaTWalsh: Website {
     var description = "iOS/Mac Developer"
     var language: Language { .english }
     var imagePath: Path? { nil }
-    var socialMediaLinks: [SocialMediaLink] { [.email, .github, .twitter] }
+    var socialMediaLinks: [SocialMediaLink] { [.email, .github, .twitter, .buyMeACoffee] }
 }
 
 try JoshuaTWalsh().publish(

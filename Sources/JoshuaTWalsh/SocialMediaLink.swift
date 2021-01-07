@@ -14,24 +14,6 @@ struct SocialMediaLink {
 }
 
 extension SocialMediaLink {
-    // TODO: Change location
-//    static var location: SocialMediaLink {
-//        return SocialMediaLink(
-//            title: "Vilnius, Lithuania",
-//            url: "https://en.wikipedia.org/wiki/Vilnius",
-//            icon: "fas fa-map-marker-alt"
-//        )
-//    }
-
-    // TODO: Change linkedIn
-//    static var linkedIn: SocialMediaLink {
-//        return SocialMediaLink(
-//            title: "LinkedIn",
-//            url: "https://www.linkedin.com/in/povilas-staškus-6b10528b",
-//            icon: "fab fa-linkedin"
-//        )
-//    }
-
     static var email: SocialMediaLink {
         return SocialMediaLink(
             title: "Email",
@@ -60,6 +42,6 @@ extension SocialMediaLink {
         return SocialMediaLink(
             title: "Buy Me A Coffee",
             url: "https://www.buymeacoffee.com/joshuawalsh",
-            icon: "fab fa-coffee")
+            icon: "fas fa-mug-hot")
     }
 }

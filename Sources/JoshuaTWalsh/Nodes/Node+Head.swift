@@ -24,7 +24,7 @@ extension Node where Context == HTML.DocumentContext {
             ),
             .link(
                 .rel(.stylesheet),
-                .href("https://unpkg.com/purecss@1.0.1/build/grids-responsive-min.css")
+                .href("https://unpkg.com/purecss@2.0.3/build/grids-responsive-min.css")
             ),
             .link(
                 .rel(.stylesheet),

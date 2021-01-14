@@ -3,6 +3,7 @@ date: 2021-01-04 21:04
 description: Creating a website with Publish and Github Pages
 tags: development
 excerpt: A Swift developer's friend when it comes to creating their own website.
+topic: development
 ---
 
 # Creating a website with Publish and Github Pages
@@ -126,7 +127,7 @@ You pushed your generated site up to Github, on to a newly created `master` bran
 
 You can see your new branch by clicking the dropdown branch picker. Go ahead, click it.
 
-![Branch names](/images/change-branch.png)
+![Branch names](/images/change-branch.png width=300)
 *As you can see I called my working branch `main`*
 
 When you switch branches on Github you'll see the difference in what files and folders are on each branch. 
@@ -135,7 +136,7 @@ There is one more thing to change before we can see our site go live. Head to th
 
 Here we'll want to make sure our `Source` is set to the `master` branch, and our path is set to the `/(root)` folder. This will ensure we load our site from the `index.html` file found in the `master` branch.
 
-![Master source](/images/source-pages.png)
+![Master source](/images/source-pages.png width=500)
 
 This should save automatically for you, and after a few minutes you can open a new browser window and go to `<username>.github.io`
 

@@ -20,6 +20,24 @@
         }
       },
       {
+        "package": "HTMLString",
+        "repositoryURL": "https://github.com/alexaubry/HTMLString",
+        "state": {
+          "branch": null,
+          "revision": "7fb27bf13771e239c9952507199920dfe1605ca9",
+          "version": "4.0.2"
+        }
+      },
+      {
+        "package": "ImageAttributesPublishPlugin",
+        "repositoryURL": "https://github.com/finestructure/ImageAttributesPublishPlugin",
+        "state": {
+          "branch": null,
+          "revision": "d9c7e5214cea8821a75fa91a35c2667a848e53be",
+          "version": "0.1.1"
+        }
+      },
+      {
         "package": "Ink",
         "repositoryURL": "https://github.com/johnsundell/ink.git",
         "state": {

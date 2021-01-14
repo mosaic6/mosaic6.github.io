@@ -8,7 +8,7 @@
 import Plot
 
 extension Node where Context == HTML.BodyContext {
-    private static var sections: [JoshuaTWalsh.SectionID] { [JoshuaTWalsh.SectionID.about] }
+    private static var sections: [JoshuaTWalsh.SectionID] { [.blog, .about] }
 
     static func header(for site: JoshuaTWalsh) -> Node {
         return .div(
@@ -18,19 +18,6 @@ extension Node where Context == HTML.BodyContext {
                     .class("pure-menu-heading"),
                     .text(site.title),
                     .href("/")
-                ),
-                .ul(
-                    .class("pure-menu-list"),
-                    .forEach(sections, { section in
-                        .li(
-                            .class("pure-menu-item"),
-                            .a(
-                                .class("pure-menu-link"),
-                                .text(section.rawValue.capitalized),
-                                .href(site.path(for: section))
-                            )
-                        )
-                    })
                 )
             )
         )

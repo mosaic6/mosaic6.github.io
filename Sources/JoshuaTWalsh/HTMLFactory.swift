@@ -18,21 +18,13 @@ struct JTWHTMLFactory: HTMLFactory {
                 .grid(
                     .header(for: context.site),
                     .sidebar(for: context.site),
-                    .posts(
-                        for: context.allItems(
-                            sortedBy: \.date,
-                            order: .descending
-                        ),
-                        on: context.site,
-                        title: "Recent posts"
-                    ),
-                    .footer(for: context.site)
+                    .feature(for: context.site, feature: feature)
                 )
             )
         )
     }
 
-    func makeSectionHTML(for section: Section<JoshuaTWalsh>, context: PublishingContext<JoshuaTWalsh>) throws -> HTML {
+    func makeBlogSectionHTML(for index: Index, context: PublishingContext<JoshuaTWalsh>) throws -> HTML {
         HTML(
             .lang(context.site.language),
             .head(for: context.site),
@@ -40,11 +32,17 @@ struct JTWHTMLFactory: HTMLFactory {
                 .grid(
                     .header(for: context.site),
                     .sidebar(for: context.site),
-                    .pageContent(.h1(.text(section.title))),
-                    .footer(for: context.site)
+                    .posts(for: context.allItems(sortedBy: \.date, order: .descending), on: context.site, title: "Posts")
                 )
             )
         )
+    }
+
+    func makeSectionHTML(for section: Section<JoshuaTWalsh>, context: PublishingContext<JoshuaTWalsh>) throws -> HTML {
+        if section.id == .blog {
+            return try makeBlogSectionHTML(for: context.index, context: context)
+        }
+        return try makeIndexHTML(for: context.index, context: context)
     }
 
     func makeItemHTML(for item: Item<JoshuaTWalsh>, context: PublishingContext<JoshuaTWalsh>) throws -> HTML {
@@ -55,8 +53,7 @@ struct JTWHTMLFactory: HTMLFactory {
                 .grid(
                     .header(for: context.site),
                     .sidebar(for: context.site),
-                    .post(for: item, on: context.site),
-                    .footer(for: context.site)
+                    .post(for: item, on: context.site)
                 )
 
             )
@@ -71,8 +68,7 @@ struct JTWHTMLFactory: HTMLFactory {
                 .grid(
                     .header(for: context.site),
                     .sidebar(for: context.site),
-                    .page(for: page, on: context.site),
-                    .footer(for: context.site)
+                    .page(for: page, on: context.site)
                 )
             )
         )
@@ -88,8 +84,7 @@ struct JTWHTMLFactory: HTMLFactory {
                     .sidebar(for: context.site),
                     .pageContent(
                         .tagList(for: page, on: context.site)
-                    ),
-                    .footer(for: context.site)
+                    )
                 )
             )
         )
@@ -111,8 +106,7 @@ struct JTWHTMLFactory: HTMLFactory {
                         ),
                         on: context.site,
                         title: "\(page.tag.string.capitalized) posts"
-                    ),
-                    .footer(for: context.site)
+                    )
                 )
             )
         )

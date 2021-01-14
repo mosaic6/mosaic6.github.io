@@ -2,13 +2,15 @@ import Foundation
 import Publish
 import Plot
 import SplashPublishPlugin
+import ImageAttributesPublishPlugin
 
 // This type acts as the configuration for your website.
 struct JoshuaTWalsh: Website {
-    enum SectionID: String, WebsiteSectionID {
+    enum SectionID: String, CaseIterable, WebsiteSectionID {
         // Add the sections that you want your website to contain here:
-        case posts
+        case blog
         case about
+        case apps
     }
 
     struct ItemMetadata: WebsiteItemMetadata {
@@ -17,7 +19,7 @@ struct JoshuaTWalsh: Website {
 
     // Update these properties to configure your website:
     var url = URL(string: "https://joshuatwalsh.com")!
-    var title = "joshuatwalsh.com"
+    var title = "Joshua Walsh"
     var name = "Joshua Walsh"
     var description = "iOS/Mac Developer"
     var language: Language { .english }
@@ -25,8 +27,8 @@ struct JoshuaTWalsh: Website {
     var socialMediaLinks: [SocialMediaLink] { [.email, .github, .twitter, .buyMeACoffee] }
 }
 
-try JoshuaTWalsh().publish(
+try JoshuaTWalsh().publish(    
     withTheme: .blog,
     deployedUsing: .gitHub("mosaic6/mosaic6.github.io", useSSH: false),
-    plugins: [.splash(withClassPrefix: "")]
+    plugins: [.splash(withClassPrefix: ""), .imageAttributes()]
 )

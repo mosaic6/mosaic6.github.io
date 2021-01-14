@@ -8,6 +8,9 @@
 import Plot
 
 extension Node where Context == HTML.BodyContext {
+
+    private static var sections: [JoshuaTWalsh.SectionID] { [.blog, .about] }
+
     static func sidebar(for site: JoshuaTWalsh) -> Node {
         return .div(
             .class("sidebar pure-u-1 pure-u-md-1-4"),
@@ -33,18 +36,28 @@ extension Node where Context == HTML.BodyContext {
                         )
                     )
                 ),
+                .div(
+                    .ul(
+                        .class("pure-menu-list"),
+                        .forEach(sections, { section in
+                            .li(
+                                .class("pure-menu-item"),
+                                .a(
+                                    .class("pure-menu-link"),
+                                    .text(section.rawValue.capitalized),
+                                    .href(site.path(for: section))
+                                )
+                            )
+                        })
+                    )
+                ),
                 .grid(
                     .forEach(site.socialMediaLinks, { link in
                         .div(
-                            .class("pure-u-md-1-1"),
+                            .class("pure-u-4-24"),
                             .a(
                                 .href(link.url),
-                                .icon(link.icon),
-                                .a(
-                                    .class("social-media"),
-                                    .href(link.url),
-                                    .text(link.title)
-                                )
+                                .icon(link.icon)
                             )
                         )
                     })

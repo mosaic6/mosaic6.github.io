@@ -10,6 +10,6 @@ import Plot
 
 extension Theme where Site == JoshuaTWalsh {
     static var blog: Self {
-        Theme(htmlFactory: JTWHTMLFactory())
+        Theme(htmlFactory: JTWHTMLFactory(), resourcePaths: ["Resources/Pure/styles.css"])
     }
 }

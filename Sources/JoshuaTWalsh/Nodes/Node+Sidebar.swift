@@ -18,17 +18,14 @@ extension Node where Context == HTML.BodyContext {
                 .class("header"),
                 .grid(
                     .div(
-                        .class("pure-u-md-1-1 pure-u-1-4"),
-                        .class("author__avatar"),
-                        .img(
-                            .src("https://secure.gravatar.com/avatar/8f66ed083c1f256c6ba9219c674b430b")
-                        )
-                    ),
-                    .div(
                         .class("pure-u-md-1-1 pure-u-3-4"),
                         .h1(
-                            .class("brand-title"),
-                            .text(site.name)
+                            .a(
+                                .class("brand-title"),
+                                .text(site.name),
+                                .href("/")
+                            )
+
                         ),
                         .h3(
                             .class("brand-tagline"),

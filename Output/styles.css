@@ -205,13 +205,14 @@ h3 {
 
 .feature {
     padding: 1em 0;
-    color: #999;
+    color: #eee;
 }
 
 .feature-header {
-    background: #ee4;
+    background: #8b45ed;
     padding: 1em;
-    border-radius: 25px;
+    border-radius: 10px;
+    text-align: center;
 }
 
 .feature-description {

@@ -8,8 +8,6 @@
 import Plot
 
 extension Node where Context == HTML.BodyContext {
-    private static var sections: [JoshuaTWalsh.SectionID] { [.blog, .about] }
-
     static func header(for site: JoshuaTWalsh) -> Node {
         return .div(
             .div(

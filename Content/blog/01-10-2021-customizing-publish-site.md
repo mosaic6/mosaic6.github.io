@@ -16,22 +16,22 @@ Let's pick up where we left off. Our site is on Github Pages and now we want to 
 
 Here is what we're going to do:
 
-1. Define our own HTML Factory
-2. Add Nodes and resourcess to use in our HTML Factory
-3. Create a new theme that uses our HTML Factory
+1. Define our HTMLFactory
+2. Add Nodes and resources for styling
+3. Create a new theme
 
 ## 1. Defining our own HTML Factory
 
 Create a new file in `Sources`/`<SiteName>` called `HTMLFactory.swift`. This is where we'll add the methods required from the `HTMLFactory` protocol.
 
-Start typing _makeIndexHTML_ and Xcode should auto complete this method for you.
+Start typing _makeIndexHTML_ and Xcode should auto-complete this method for you.
 
 ```
 func makeIndexHTML(for index: Index, context: PublishingContext<Site>) throws -> HTML
 ```
-As the docs state, this creates the HTML to use for the website's main index page. First we need to change this part `PublishingContext<Site>` to use your `site` name. For example: `PublishingContext<SwiftBySundell>` 😉. This is the name of your site that is in `main.swift`. Or the struct that conforms to `Website`.
+As the docs state, this creates the HTML to use for the website's main index page. First, we need to change this part `PublishingContext<Site>` to use your `site` name. For example: `PublishingContext<SwiftBySundell>` 😉. This is the name of your site that is in `main.swift`. Or the struct that conforms to `Website`.
 
-Let's go ahead and add the rest of the methods for `HTMLFactory` and we'll add to them as we go. 
+Let's go ahead and add the rest of the methods for `HTMLFactory` and we'll add to them later on.
 
 ```
 func makeSectionHTML(for section: Section<SiteName>, context: PublishingContext<Site>) throws -> HTML
@@ -66,7 +66,7 @@ Create a new folder in `Sources/<SiteName>/` called `Nodes`. Then add a new file
         - HTMLFactory.swift
 ```
 
-Ok that seems like a lot, and this is where we need to mix some of our steps together so bear with me here. We're going to define our `Head` for our site. This is where we'd link any stylesheets or other metadata for a typical HTML site, and we'll do the same here. I'm using a CSS framework called [Pure.css](https://purecss.io) as boilderplate styling for my site. You can do the same, or go on your own adventure. Here is what our `Node+Head.swift` file should looks like:
+Ok, that seems like a lot, but we'll go through each one by one. We're going to define our `Head` for our site. This is where we link any stylesheets or other metadata for a typical HTML site, and we'll do the same here. I'm using a CSS framework called [Pure.css](https://purecss.io) as boilerplate styling for my site. You can do the same, or go on your own adventure. Here is what our `Node+Head.swift` file should look like:
 
 ### Head
 
@@ -116,10 +116,14 @@ One down...ten to go...
 
 Let's move on to `Node+Header.swift`. In each of our remaining `Node+` files we'll be importing `Plot` and extending `Node` like so:
 ```
+import Plot
+
 extension Node where Context == HTML.BodyContext
 ```
 
 I'll just be showing the contents of the extension going forward. Here is what our `Header` will look like:
+
+***I'll call out any important notes.***
 
 ### Header
 
@@ -137,6 +141,7 @@ static func header(for site: <SiteName>) -> Node {
     )
 }
 ```
+***NOTE***
 Each `.div`, `.class`, `.a`, etc corresponds to an HTML node. You'd normally see these written out like so:
 
 ```
@@ -144,8 +149,6 @@ Each `.div`, `.class`, `.a`, etc corresponds to an HTML node. You'd normally see
     <a class="pure-menu-heading" href="/">site.title</a>
 </div>
 ```
-
-Here are the rest of our files. I'll make sure to call out any important notes.
 
 ### Grid
 
@@ -210,9 +213,9 @@ static func page(for page: Page, on site: <SiteName>) -> Node {
 ```
 
 ***NOTE***
-In here you'll see `page.title` and `page.body`. These attributes come from two places. When we create a new post or page as a markdown file, we can give it `metadata` at the top of the page, title being one of those attributes. The `page.body` will be the remaining markdown, or content of your file.
+In here you'll see `page.title` and `page.body`. These attributes come from two places. When we create a new post or page as a markdown file, we can give it `metadata` at the top of the page, the title being one of those attributes. The `page.body` will be the remaining markdown or content of your file.
 
-Heres an example of the `metadata`: 
+Here's an example of the `metadata`: 
 
 ```
 ---
@@ -302,7 +305,7 @@ static func post(for item: Item<SiteName>, on site: <SiteName>) -> Node {
 }
 ```
 
-***NOTE*** To show a user friendly date we're going to need a helper. Create a new file in `Sources/` called `DateFormatter.swift`. Feel free to change this date format to whatever pleases you. 
+***NOTE*** To show a user-friendly date we're going to need a helper. Create a new file in `Sources/` called `DateFormatter.swift`. Feel free to change this date format to whatever pleases you. 
 
 We'll get back to the `DateFormatter.blog.string(from: item.date)` part. Specifically the `.blog` part.
 
@@ -390,7 +393,7 @@ static func sidebar(for site: <SiteName>) -> Node {
 }
 ```
 
-***NOTE*** I have two notes for this one. 1. `sections` are definted in `main.swift` under `SectionID`. This allows you to create separate _pages_ such as `blog`, `about`, `podcast`, `videos`, etc. The name is a bit confusing because we're not creating "sections", but since the name `Page` is used in the Publish framework we can't use it here. 2. `socialMediaLinks` are also something we get in the framework, but we can extend it to add our own. Create a new file called `SocialMediaLink.swift` in `Sources/`. The basic structure is as follows:
+***NOTE*** I have two notes for this one. 1. `sections` are defined in `main.swift` under `SectionID`. This allows you to create separate _pages_ such as `blog`, `about`, `podcast`, `videos`, etc. The name is a bit confusing because we're not creating "sections", but since the name `Page` is used in the Publish framework we can't use it here. 2. `socialMediaLinks` are also something we get in the framework, but we can extend it to add our own. Create a new file called `SocialMediaLink.swift` in `Sources/`. The basic structure is as follows:
 
 ```
 struct SocialMediaLink {
@@ -438,7 +441,7 @@ static func tagList(for page: TagListPage, on site: <SiteName>) -> Node {
 
 ## Back to HTMLFactory
 
-This should cover all our `Nodes` for now. You can always create more or change what we have here to suit your sites needs. 
+This should cover all our `Nodes` for now. You can always create more or change what we have here to suit the needs of your site. 
 
 Now that we have our nodes, let's go back in time to our `HTMLFactory` and our empty methods. 
 
@@ -591,4 +594,8 @@ try SiteName().publish(
 
 # Conclusion
 
-While the `.foundation` theme is great out of the box for getting a site up and running quickly, it does limit your styling options. With a little effort and customization you can create your own theme, and truly make a Publish site your own. I'd like to thank [John Sundell](https://www.swiftbysundell.com) for creating such a dynamic tool for Swift developers to build their own websites with. Go forth and build something cool!
+While the `.foundation` theme is great out of the box for getting a site up and running quickly, it does limit your styling options. With a little effort and customization you can create your own theme, and truly make a Publish site your own. I'd like to thank [John Sundell](https://www.swiftbysundell.com) for creating such a dynamic tool for Swift developers to build their websites with. Go forth and build something cool!
+
+
+“I'm not dumb. I just have a command of thoroughly useless information.” 
+― Bill Watterson

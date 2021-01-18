@@ -17,7 +17,7 @@ struct JTWHTMLFactory: HTMLFactory {
             .body(
                 .grid(
                     .sidebar(for: context.site),
-                    .feature(for: context.site, feature: mainFeature)
+                    .feature(for: context.site, features: [mainFeature])
                 )
             )
         )

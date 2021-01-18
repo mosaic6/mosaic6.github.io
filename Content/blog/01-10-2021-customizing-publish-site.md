@@ -1,5 +1,5 @@
 ---
-date: 2021-01-05 21:04 
+date: 2021-01-16 21:04 
 description: A detailed guide on customizing a website with the Publish framework.
 tags: development
 excerpt: Customize your Publish site in a few steps to get the most out of this framework.

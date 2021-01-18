@@ -9,7 +9,7 @@ title: Customizing a Publish site
 
 # Customizing your Publish site
 
-Welcome back 👋. If you read my previous post you already have your Publish site up on Github Pages. If not... read this [Creating a website with Publish and Github Pages](https://www.joshuatwalsh.com/posts/publish-and-github-pages/)
+Welcome back 👋. If you read my previous post you already have your Publish site up on Github Pages. If not... read this [Creating a website with Publish and Github Pages](https://www.joshuatwalsh.com/blog/01-07-2021-publish-and-github-pages/)
 
 
 Let's pick up where we left off. Our site is on Github Pages and now we want to make it look 👌. 

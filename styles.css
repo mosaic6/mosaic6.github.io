@@ -32,7 +32,7 @@ h3 {
 }
 
 #layout {
-    padding: 0.25em;
+/*    padding: 0.25em;*/
 }
 
 .header {
@@ -42,20 +42,24 @@ h3 {
 }
 
 .sidebar {
-    background: #fff;
-    color: rgba(0, 0, 0, 0.8);
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.custom-sidebar {
+    background-color: rgba(14, 124, 144, 0.7);
 }
 
 .brand-title,
 .brand-tagline {
     margin: 0;
+    color: #fff;
 }
 .brand-title {
     text-transform: capitalize;
 }
 .brand-tagline {
     font-weight: 300;
-    color: rgba(0, 0, 0, 0.8);
+    color: rgba(255, 255, 255, 0.8);
 }
 
 .nav-list {
@@ -91,6 +95,30 @@ h3 {
     font-size: 80%;
     font-weight: 500;
     letter-spacing: 0.1em;
+}
+
+.menu-list {
+    color: #fff;
+    list-style: none;
+    padding: 1em;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+.menu-list-item {
+    padding: 5px 0 5px 0;
+}
+
+.menu-list-link {
+    color: #fff;
+}
+
+.menu-list-link-icon {
+    opacity: 0.5;
+}
+
+.menu-list-link-icon:hover {
+    opacity: 0.8;
 }
 
 .content {
@@ -204,12 +232,12 @@ h3 {
 }
 
 .feature {
-    padding: 1em 0;
+    padding: 1em;
     color: #eee;
 }
 
 .feature-header {
-    background: #8b45ed;
+    background-color: rgba(14, 124, 144, 0.8);
     padding: 1em;
     border-radius: 10px;
     text-align: center;
@@ -218,6 +246,7 @@ h3 {
 .feature-description {
     color: #999;
     font-size: 1.2em;
+    text-align: center;
 }
 
 @media (min-width: 48em) {
@@ -233,7 +262,7 @@ h3 {
 
     .sidebar {
         position: fixed;
-        top: 2em;
+        top: 0em;
         bottom: 0;
     }
 

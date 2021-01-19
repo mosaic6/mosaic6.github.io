@@ -13,7 +13,7 @@ extension Node where Context == HTML.BodyContext {
 
     static func sidebar(for site: JoshuaTWalsh) -> Node {
         return .div(
-            .class("sidebar pure-u-1 pure-u-md-1-4"),
+            .class("custom-sidebar sidebar pure-u-1 pure-u-md-1-4"),
             .div(
                 .class("header"),
                 .grid(
@@ -35,12 +35,12 @@ extension Node where Context == HTML.BodyContext {
                 ),
                 .div(
                     .ul(
-                        .class("pure-menu-list"),
+                        .class("menu-list"),
                         .forEach(sections, { section in
                             .li(
-                                .class("pure-menu-item"),
+                                .class("menu-list-item"),
                                 .a(
-                                    .class("pure-menu-link"),
+                                    .class("menu-list-link"),
                                     .text(section.rawValue.capitalized),
                                     .href(site.path(for: section))
                                 )
@@ -53,6 +53,7 @@ extension Node where Context == HTML.BodyContext {
                         .div(
                             .class("pure-u-4-24"),
                             .a(
+                                .class("menu-list-link-icon"),
                                 .href(link.url),
                                 .icon(link.icon)
                             )

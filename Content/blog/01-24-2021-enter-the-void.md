@@ -1,5 +1,5 @@
 ---
-date: 2021-01-18 21:04 
+date: 2021-01-24 21:04
 description: Have you every really looked into what Void is?
 tags: development, quickie
 excerpt: Do you really know what Void is?

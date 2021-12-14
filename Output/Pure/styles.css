@@ -141,6 +141,7 @@ h3 {
 .post-description {
     color: #444;
     line-height: 1.8em;
+    font-size: 30px;
 }
 
 .post-description a {
@@ -304,16 +305,16 @@ h3 {
 
 pre {
     margin-bottom: 1.5em;
-    background-color: rgba(34, 37, 41, 1);
+    background-color: #1a1a1a;
     padding: 16px 0;
-    border-radius: 8px;
+    border-radius: 16px;
 }
 
 pre code {
     font-family: monospace;
     display: block;
     padding: 0 20px;
-    color:  rgba(215, 215, 215, 1);
+    color: #a9bcbc;
     line-height: 1.4em;
     font-size: 0.95em;
     overflow-x: auto;
@@ -322,15 +323,15 @@ pre code {
 }
 
 pre code .keyword {
-    color: rgba(252, 95, 193, 1);
+    color: #e73289;
 }
 
 pre code .type {
-    color: rgba(158, 241, 221, 1);
+    color: #8281ca;
 }
 
 pre code .call {
-    color: rgba(158, 241, 221, 1);
+    color: #348fe5;
 }
 
 pre code .property {
@@ -338,11 +339,11 @@ pre code .property {
 }
 
 pre code .number {
-    color: rgba(200, 184, 106, 1);
+    color: #db6f57;
 }
 
 pre code .string {
-    color: rgba(250, 106, 102, 1);
+    color: #fa641e;
 }
 
 pre code .comment {
@@ -350,7 +351,7 @@ pre code .comment {
 }
 
 pre code .dotAccess {
-    color: rgba(158, 241, 221, 1);
+    color: #92b300;
 }
 
 pre code .preprocessing {

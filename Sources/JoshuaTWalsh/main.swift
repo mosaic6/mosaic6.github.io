@@ -4,13 +4,10 @@ import Plot
 import SplashPublishPlugin
 import ImageAttributesPublishPlugin
 
-// This type acts as the configuration for your website.
 struct JoshuaTWalsh: Website {
     enum SectionID: String, CaseIterable, WebsiteSectionID {
-        // Add the sections that you want your website to contain here:
         case blog
         case about
-        case apps
     }
 
     struct ItemMetadata: WebsiteItemMetadata {
@@ -21,13 +18,21 @@ struct JoshuaTWalsh: Website {
     var url = URL(string: "https://joshuatwalsh.com")!
     var title = "Joshua Walsh"
     var name = "Joshua Walsh"
-    var description = "iOS/Mac Developer"
+    var description = "iOS Developer"
     var language: Language { .english }
     var imagePath: Path? { nil }
     var socialMediaLinks: [SocialMediaLink] { [.email, .github, .twitter, .buyMeACoffee] }
 }
 
-try JoshuaTWalsh().publish(    
+//try JoshuaTWalsh().publish(at:  nil, using: [
+//    .addMarkdownFiles(),
+//    .copyResources(),
+//    .generateHTML(withTheme: .foundation),
+//    .generateSiteMap(),
+//    .deploy(using: .gitHub("mosaic6/mosaic6.github.io")),
+//    .installPlugin(.splash(withClassPrefix: ""))
+//])
+try JoshuaTWalsh().publish(
     withTheme: .blog,
     deployedUsing: .gitHub("mosaic6/mosaic6.github.io", useSSH: false),
     plugins: [.splash(withClassPrefix: ""), .imageAttributes()]

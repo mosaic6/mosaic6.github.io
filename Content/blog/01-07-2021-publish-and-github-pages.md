@@ -34,7 +34,7 @@ I'll be using `<username>` to indicate places where you should use *your* Github
 
 *Don't create your project folder inside the `Publish` folder*. Make sure you create your project folder somewhere in an empty folder, or directly onto your desktop. I like to put all my development work inside a folder in my root directory called `Projects`. But you do you.
 
-```
+```bash
 $ mkdir <username>.github.io
 $ cd <username>.github.io
 $ publish new
@@ -58,7 +58,7 @@ This is all you need to do (right now) for your repository. Press `Create Reposi
 
 Before we start styling or writing any content, let's get our site live so we can see what the end result will be on Github. You can also test this out locally by running the following command in Terminal.
 
-```
+```bash
 $ publish run
 ```
 
@@ -68,7 +68,7 @@ This will spin up a local web server for you to see your changes. Open your web 
 
 In your project folder in Terminal run the following commands
 
-```
+```bash
 $ git init
 $ git checkout -b posts
 ```
@@ -87,7 +87,7 @@ try Mosaic6GithubIo().publish(with theme: .foundation)
 
 Let's change it so we can push our page up to Github. Here is what it should look like: 
 
-```
+```swift
 try Mosaic6GithubIo().publish(
   withTheme: .foundation,
   deployedUsing: .gitHub("<username>/<username>.github.io", useSSH: false)
@@ -110,14 +110,14 @@ $ git push -u origin posts
 
 This will add your branch to Github without any generated output. Now let's generate some HTML for our site.
 
-```
+```bash
 $ publish generate
 ```
 This generates the website in your current folder. Your `Output` folder should now have some additional files in it. You shouldn't need to touch these files since all our work will be done writing `Swift` and `Markdown`.
 
 ## Time to deploy
 
-```
+```bash
 $ publish deploy
 ```
 

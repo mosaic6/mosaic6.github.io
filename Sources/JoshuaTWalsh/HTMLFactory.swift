@@ -17,10 +17,19 @@ struct JTWHTMLFactory: HTMLFactory {
             .body(
                 .grid(
                     .sidebar(for: context.site),
-                    .feature(for: context.site, features: [mainFeature])
+                    .post(for: context.allItems(sortedBy: \.date).last!, on: context.site)
                 )
             )
         )
+    }
+
+    func featurePage(for feature: FeatureItem) -> HTML {
+        return HTML(.body(
+            .div(
+                .class("wrapper"),
+                .component(feature)
+            )
+        ))
     }
 
     func makeBlogSectionHTML(for index: Index, context: PublishingContext<JoshuaTWalsh>) throws -> HTML {
